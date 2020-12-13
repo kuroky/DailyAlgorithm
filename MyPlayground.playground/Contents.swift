@@ -1,46 +1,70 @@
-import UIKit
 
-// 1 2 3 4 5 6 7 8 9
-func confusingNumber(_ N: Int) -> Bool {
+ // Definition for singly-linked list.
+  public class ListNode {
+      public var val: Int
+      public var next: ListNode?
+      public init() { self.val = 0; self.next = nil; }
+      public init(_ val: Int) { self.val = val; self.next = nil; }
+      public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+  }
+ 
+
+class Solution {
     
-    let string = String(N)
-    var str = ""
-    for (_, item) in string.enumerated() {
-        if item == "2" ||
-            item == "3" ||
-            item == "4" ||
-            item == "5" ||
-            item == "7" {
-            return false
-        }
-              
-        if item == "0" {
-            str.insert("0", at: str.startIndex)
+    func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
+        if head == nil {
+            return nil
         }
         
-        if item == "1" {
-            str.insert("1", at: str.startIndex)
+        var items: [String: ListNode] = [:]
+        
+        var node = head
+        print(node?.val)
+        var index = 0
+        while node != nil {
+            items[String(index)] = node
+            let temp = node?.next
+            node = temp
+            index += 1
         }
         
-        if item == "6" {
-            str.insert("9", at: str.startIndex)
+        let curr = index + 1 - n
+        let currentNode = items[String(curr)]
+        print(currentNode?.val)
+        
+        let pre = index + 1 - n - 1
+        let preNode = items[String(pre)]
+        print(preNode?.val)
+        
+        if preNode != nil {
+            if currentNode?.next != nil {
+                preNode?.next = currentNode?.next
+            }
+            else {
+                preNode?.next = nil
+            }
+        }
+        else {
+            if currentNode?.next != nil {
+                head?.val = currentNode?.next?.val ?? 0
+                head?.next = currentNode?.next?.next
+            }
+            else {
+                return nil
+            }
         }
         
-        if item == "8" {
-            str.insert("8", at: str.startIndex)
-        }
-        
-        if item == "9" {
-            str.insert("6", at: str.startIndex)
-        }
-        
-        print(str)
+        return head
     }
-    
-    if str == string {
-        return false
-    }
-    return true
 }
 
-print(confusingNumber(916))
+let node = ListNode.init(1)
+node.next?.val = 2
+node.next?.next?.val = 3
+node.next?.next?.next?.val = 4
+node.next?.next?.next?.next?.val = 5
+
+let soul = Solution.init()
+soul.removeNthFromEnd(node, 2)
+
+print(node)
