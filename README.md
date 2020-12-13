@@ -4,7 +4,9 @@
 ### 1. 基础课程
 #### a. 2020年12月9日-2020年12月13日
 - [数据结构与算法基础第一章（青岛大学-王卓)](https://www.bilibili.com/video/BV1nJ411V7bd?from=search&seid=12328914553498419460)
-- [算法效率与度量](https://www.coursera.org/learn/shuju-jiegou-suanfa/lecture/E7xIs/suan-fa-xiao-lu-yu-du-liang)
+- 单链表
+    - 线性结构
+    - 不连续内存存储
 
 #### b. 2020年12月14日-2020年12月20日
 
