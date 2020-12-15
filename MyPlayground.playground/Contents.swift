@@ -11,50 +11,21 @@
 
 class Solution {
     
-    func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
-        if head == nil {
-            return nil
-        }
-        
+    func getKthFromEnd(_ head: ListNode?, _ k: Int) -> ListNode? {
         var items: [String: ListNode] = [:]
-        
+        var current = 0
         var node = head
-        print(node?.val)
-        var index = 0
+        
         while node != nil {
-            items[String(index)] = node
-            let temp = node?.next
-            node = temp
-            index += 1
+            items[String(current)] = node
+            let next = node?.next
+            node = next
+            current += 1
         }
         
-        let curr = index + 1 - n
-        let currentNode = items[String(curr)]
-        print(currentNode?.val)
-        
-        let pre = index + 1 - n - 1
-        let preNode = items[String(pre)]
-        print(preNode?.val)
-        
-        if preNode != nil {
-            if currentNode?.next != nil {
-                preNode?.next = currentNode?.next
-            }
-            else {
-                preNode?.next = nil
-            }
-        }
-        else {
-            if currentNode?.next != nil {
-                head?.val = currentNode?.next?.val ?? 0
-                head?.next = currentNode?.next?.next
-            }
-            else {
-                return nil
-            }
-        }
-        
-        return head
+        let find = current - k
+        let findN = items[String(find)]
+        return findN
     }
 }
 
