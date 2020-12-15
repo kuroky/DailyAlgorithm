@@ -9,64 +9,33 @@
 ```
 
 ```swift
- // Definition for singly-linked list.
-     public class ListNode {
-         public var val: Int
-         public var next: ListNode?
-         public init() { self.val = 0; self.next = nil; }
-         public init(_ val: Int) { self.val = val; self.next = nil; }
-         public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
-     }
-    
+  // Definition for singly-linked list.
+  public class ListNode {
+      public var val: Int
+      public var next: ListNode?
+      public init(_ val: Int) {
+          self.val = val
+          self.next = nil
+      }
+  }
 
-    class Solution {
+class Solution {
+    
+    func getKthFromEnd(_ head: ListNode?, _ k: Int) -> ListNode? {
+        var items: [String: ListNode] = [:]
+        var current = 0
+        var node = head
         
-        func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
-            if head == nil {
-                return nil
-            }
-            
-            var items: [String: ListNode] = [:]
-            
-            var node = head
-            print(node?.val)
-            var index = 0
-            
-            while node?.next != nil {
-                items[String(index)] = node
-                let temp = node?.next
-                node = temp
-                index += 1
-            }
-            
-            let curr = index + 1 - n
-            let currentNode = items[String(curr)]
-            print(currentNode?.val)
-            
-            let pre = index + 1 - n - 1
-            let preNode = items[String(pre)]
-            print(preNode?.val)
-            
-            if preNode != nil {
-                if currentNode?.next != nil {
-                    preNode?.next = currentNode?.next
-                }
-                else {
-                    preNode?.next = nil
-                }
-            }
-            else {
-                if currentNode?.next != nil {
-                    head?.val = currentNode?.next?.val ?? 0
-                    head?.next = currentNode?.next?.next
-                }
-                else {
-                    return nil
-                }
-            }
-            
-            return head
+        while node != nil {
+            items[String(current)] = node
+            let next = node?.next
+            node = next
+            current += 1
         }
+        
+        let find = current - k
+        let findN = items[String(find)]
+        return findN
     }
 }
 ```
