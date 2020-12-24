@@ -21,7 +21,7 @@
 - [7.字符串中的第一个唯一字符](https://github.com/kuroky/DailyAlgorithm/blob/main/%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6.md)
 
 #### b.数学计算
-- [1.最富有客户的资产总量]()
+- [1.最富有客户的资产总量](https://github.com/kuroky/DailyAlgorithm/blob/main/%E6%9C%80%E5%AF%8C%E6%9C%89%E5%AE%A2%E6%88%B7%E7%9A%84%E8%B5%84%E4%BA%A7%E6%80%BB%E9%87%8F.md)
 
 ### 参考
 - [数据结构与算法基础（青岛大学-王卓）](https://www.bilibili.com/video/BV1nJ411V7bd?from=search&seid=12328914553498419460)
